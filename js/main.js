@@ -1,5 +1,3 @@
-import post from "./post/index.js";
-
 const app = Vue.createApp({
     data() {
         return {
