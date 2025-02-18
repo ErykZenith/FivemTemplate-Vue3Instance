@@ -25,7 +25,7 @@ const app = Vue.createApp({
         console.log("setup : ",res);
         window.addEventListener("message", this.onListener)
     },
-    onUnmounted() {
+    unmounted() {
         window.removeEventListener(this.onListener)
     }
 });
