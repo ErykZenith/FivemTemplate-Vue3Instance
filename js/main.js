@@ -7,10 +7,7 @@ const app = Vue.createApp({
         };
     },
     methods: {
-        onListener({ data: {
-            action,
-            data
-        }}) {
+        onListener({ data }) {
             switch (action) {
                 case "open":
                     console.log(data);
