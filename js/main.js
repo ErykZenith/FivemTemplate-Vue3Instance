@@ -8,7 +8,7 @@ const app = Vue.createApp({
     },
     methods: {
         onListener({ data }) {
-            switch (action) {
+            switch (data.action) {
                 case "open":
                     console.log(data);
                     break;
