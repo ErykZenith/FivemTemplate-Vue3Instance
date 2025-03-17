@@ -15,7 +15,7 @@ file "dist/**"
 
 ### ไว้รับค่าจาก post
 ```lua
-iframe:on(callbackType, callback)
+iframe.on(callbackType, callback)
 ```
 
 ### ไว้ส่งค่าไปที่ ui ไม่เข้าใจไปอ่านต่อที่ ./dist/js/eryk/README.md
