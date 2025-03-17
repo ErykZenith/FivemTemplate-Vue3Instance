@@ -1,4 +1,4 @@
-import { createApp, version } from './vue/index.js'
+import { createApp } from './vue/index.js'
 import {
     post,
     onListener,
