@@ -2,7 +2,9 @@
 
 ## วิธีใช้งาน
 
-### เพิ่มพวกนี้ไว้บนสุดใน fxmanifest.lua
+### 1 นำไพล์ dist ไปใส่ใน Folder Project ของเรา
+
+### 2 เพิ่มพวกนี้ไว้บนสุดใน fxmanifest.lua
 ```lua
 client_script "dist/bridge.lua"
 ui_page "dist/index.html"
