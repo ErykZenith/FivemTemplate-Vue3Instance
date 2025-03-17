@@ -1,7 +1,8 @@
-import { createApp } from './vue/index.js'
+import { createApp, version } from './vue/index.js'
 import {
     post,
-    createEventHandler,
+    onListener,
+    unListener,
     emit,
     emitDebug
 } from "./eryk/index.js"
@@ -9,29 +10,39 @@ import {
 createApp({
     data() {
         return {
-            msg: ""
+            msg: "",
+            ver: 0,
         };
     },
     methods: {
-        message(text) {
-            this.msg = this.msg + text
-            console.log(this.msg)
+        version(str) {
+            this.ver = str
+        },
+        message(str) {
+            this.msg = str
+        },
+        unListener(a) {
+            unListener(a)
         },
         async onSetup() {
             const res = await post("setup")
-                .fakeResp("i am : ")
+                .fakeResp("setup")
                 .execute();
-            this.msg = this.msg + res
-            console.log("setup : ", res);
+            this.msg = res
         }
     },
     mounted() {
         this.onSetup()
-        this.CEH = createEventHandler("base", { message: this.message })
-        emit("base", "message", "vue");
-        emitDebug("base", "message", " v3.5.13");
+        onListener("base", { 
+            version: this.version, 
+            message: this.message, 
+            unListener:this.unListener 
+        })
+        emit.base.message(this.msg+"vue")
+        emit.base.version("3.5.13")
+        emitDebug.base.message(" devmode")
     },
     unmounted() {
-        this.CEH.remove()
+        unListener()
     }
 }).mount("#app");
