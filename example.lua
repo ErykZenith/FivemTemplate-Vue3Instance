@@ -1,4 +1,4 @@
-iframe:on("setup", function(data, cb)
+iframe.on("setup", function(data, cb)
 	Wait(2000)
 	cb("setup")
 	Wait(2000)
