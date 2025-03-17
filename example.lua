@@ -1,0 +1,5 @@
+iframe:on("setup", function(data, cb)
+	cb(" ok")
+	Wait(500)
+	iframe:emit("base", "message", " lua")
+end)
