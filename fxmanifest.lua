@@ -4,6 +4,6 @@ file"dist/**"
 
 client_script"example.lua"
 fx_version"cerulean"
-games{"gta5"}
+game"common"
 description"Create By.Eryk Zenith"
 author"Eryk Zenith"
