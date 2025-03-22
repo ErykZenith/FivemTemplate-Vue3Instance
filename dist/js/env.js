@@ -1,3 +1,3 @@
 var ENV = {
-    devMode: !window.invokeNative
+    devMode: window.GetParentResourceName?!1:!0
 }

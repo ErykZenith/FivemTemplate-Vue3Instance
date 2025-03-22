@@ -1,48 +1,36 @@
 import { createApp } from './vue/index.js'
 import {
-    post,
-    onListener,
-    unListener,
-    emit,
-    emitDebug
+    createCommand,
+    destroyCommand,
+    command,
+    invoke
 } from "./eryk/index.js"
 
 createApp({
     data() {
         return {
             msg: "",
-            ver: 0,
         };
     },
     methods: {
-        version(str) {
-            this.ver = str
-        },
-        message(str) {
-            this.msg = str
-        },
-        unListener(a) {
-            unListener(a)
-        },
-        async onSetup() {
-            const res = await post("setup")
-                .fakeResp("setup")
-                .execute();
-            this.msg = res
+        message(msg) {
+            this.msg = this.msg +"<br>"+ msg
         }
     },
-    mounted() {
-        this.onSetup()
-        onListener("base", { 
-            version: this.version, 
-            message: this.message, 
-            unListener:this.unListener 
+    async mounted() {
+        createCommand({
+            message: this.message,
+            destroyCommand:destroyCommand
         })
-        emit.base.message(this.msg+"vue")
-        emit.base.version("3.5.13")
-        emitDebug.base.message(" devmode")
+        command.message("js : Welcome to js")
+        const connect = await invoke.connect();
+        console.log(connect.length>0?connect:"connect?");
+        command.debug.message("devmode : on")
+        command.debug.destroyCommand("message")
+        const print = await invoke.print("js : hi");
+        console.log(print.length>0?print:"lua?");
     },
     unmounted() {
-        unListener()
+        destroyCommand()
     }
 }).mount("#app");

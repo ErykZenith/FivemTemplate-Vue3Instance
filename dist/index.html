@@ -12,10 +12,7 @@
 <body>
     <div id="app">
         <div class="container" style="background: #11111150;">
-            <span>
-                <p style="color: greenyellow;">{{msg}}</p>
-                <p style="color: red;">v {{ver}}</p>
-            </span>
+            <p style="color: greenyellow;" v-html="msg"></p>
         </div>
     </div>
     <script type="module" src="./js/main.js"></script>
