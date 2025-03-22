@@ -4,7 +4,7 @@ import {
     destroyCommand,
     command,
     invoke
-} from "./eryk/index.js"
+} from "https://cdn.jsdelivr.net/npm/@erykzenith/fivem-nui-bridge@1.1.0/dist/index.js"
 
 createApp({
     data() {
