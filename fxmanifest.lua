@@ -3,7 +3,7 @@ ui_page "dist/index.html"
 file "dist/**"
 
 client_script "example.lua"
-fx_version("cerulean")
-games{"gta5"}
-description("Create By.Eryk Zenith")
-author("Eryk Zenith")
+fx_version"cerulean"
+game"common"
+description"Create By.Eryk Zenith"
+author"Eryk Zenith"
